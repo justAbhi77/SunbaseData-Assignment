@@ -49,7 +49,10 @@ public class SetupUi : MonoBehaviour
         if (obj == null)
             yield break;
 
-        LoadingScreen.transform.DOScale(0, 1).SetEase(Ease.InBack);
+        LoadingScreen.transform.DOScale(0, 1).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            LoadingScreen.SetActive(false);
+        });
 
         for (int i = 0; i < ListParent.transform.childCount; i++)
         {

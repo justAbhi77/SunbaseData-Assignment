@@ -17,10 +17,12 @@ public class ClientInfoScreen : MonoBehaviour
             Destroy(this);
     }
 
-    public void showClientInfo(string name, int points, string address)
+    public void showClientInfo(string name = "N/A", int? points = null, string address = "N/A")
     {
         nametmp.text = name;
-        pointstmp.text = points.ToString();
+        if (points != null)
+            pointstmp.text = points.ToString();
+        else pointstmp.text = "N/A";
         addresstmp.text = address;
         screen.transform.localScale = Vector3.zero;
         screen.SetActive(true);
@@ -29,11 +31,9 @@ public class ClientInfoScreen : MonoBehaviour
 
     public void closeClientInfo()
     {
-        screen.transform.DOScale(0, 1).SetEase(Ease.InBack).onComplete = closedialog;
-    }
-
-    void closedialog()
-    {
-        screen.SetActive(false);
+        screen.transform.DOScale(0, 1).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            screen.SetActive(false);
+        });
     }
 }

@@ -3,22 +3,24 @@ using DG.Tweening;
 
 public class CircleController : MonoBehaviour
 {
-    public float TimeScale,shakeDuration;
+    // public float TimeScale,shakeDuration;
     Collider2D cutcollider;
 
-    Tweener animator;
+    // Tweener animator;
 
+    /*
     private void OnEnable()
     {
         animator = transform.DOScale(0,TimeScale).SetEase(Ease.InBack).SetLoops(-1,LoopType.Yoyo);
     }
+    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetType() != typeof(EdgeCollider2D))
             return;
 
-        animator.Pause();
+        // animator.Pause();
 
         cutcollider = collision;
     }
@@ -27,10 +29,13 @@ public class CircleController : MonoBehaviour
     {
         if(collision == cutcollider)
         {
+
+            Destroy(gameObject);
+            /*
             transform.DOShakePosition(shakeDuration,0.3f).OnComplete(() =>
             {
-                Destroy(gameObject);
             });
+            */
         }
     }
 }

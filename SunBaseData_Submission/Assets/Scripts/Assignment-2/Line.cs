@@ -31,6 +31,7 @@ public class Line : MonoBehaviour
         lineRenderer.SetPosition(pointsCount - 1, newPoint);
 
 
+        /*
         if (points.Count > 30)
         {
             points.RemoveAt(0);
@@ -38,6 +39,7 @@ public class Line : MonoBehaviour
             lineRenderer.positionCount = pointsCount;
             lineRenderer.SetPositions(points.Select(value => (Vector3)value).ToArray());
         }
+        */
 
         //Edge Collider
         //Edge colliders accept only 2 points or more (we can't create an edge with one point :D )

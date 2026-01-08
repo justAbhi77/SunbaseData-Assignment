@@ -20,7 +20,7 @@ public class CircleSpawner : MonoBehaviour
 
         float circleradius = Random.Range(1, maxCircleradius);
 
-        circleCount = Random.Range(5, 10);
+        circleCount = Random.Range(5, 11);
 
         for (int i = 0; i < circleCount; i++)
         {
